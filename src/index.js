@@ -66,7 +66,7 @@ function Header() {
 }
 
 function Menu() {
-  const numPizzas = !pizzaData.length;
+  const numPizzas = pizzaData.length;
 
   return (
     <main className="menu">
@@ -95,6 +95,9 @@ function Menu() {
 }
 
 function Pizza(props) {
+  // Early return
+  if (props.pizzaObj.soldOut) return null;
+
   return (
     <li className="pizza">
       <img src={props.pizzaObj.photoName} alt="Pizza spinaci" />
